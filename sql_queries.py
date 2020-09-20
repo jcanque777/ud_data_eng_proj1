@@ -9,8 +9,8 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 # CREATE TABLES
 
 '''
-CREATE TABLE IF NOT EXISTS songplays (songplay_id int, start_time time, user_id int, level str, \
-artist_id int, session_id int, location str, user_Agent str)
+CREATE TABLE IF NOT EXISTS songplays (songplay_id int, start_time time, user_id int, level VARCHAR, \
+artist_id int, session_id int, location VARCHAR, user_Agent VARCHAR)
 
 '''
 
@@ -18,39 +18,39 @@ artist_id int, session_id int, location str, user_Agent str)
 songplay_table_create = ('CREATE TABLE IF NOT EXISTS songplay (songplay_id int, \
 start_time time, \
 user_id int, \
-level str, \
+level VARCHAR, \
 artist_id int, \
 session_id int, \
-location str, \
-user_Agent str);')
+location VARCHAR, \
+user_Agent VARCHAR);')
 
 
 '''
 CREATE TABLE IF NOT EXISTS users (user_id int, \
-first_name str, \
-last_name str, \
-gender str, \
-level str);
+first_name VARCHAR, \
+last_name VARCHAR, \
+gender VARCHAR, \
+level VARCHAR);
 '''
 
 
 user_table_create = ("""CREATE TABLE IF NOT EXISTS users (user_id int, \
-first_name str, \
-last_name str, \
-gender str, \
-level str);""")
+first_name VARCHAR, \
+last_name VARCHAR, \
+gender VARCHAR, \
+level VARCHAR);""")
 
 
 '''
 CREATE TABLE IF EXISTS songs (song_id int, \
-title str, \
+title VARCHAR, \
 artist_id int, \
 year int, \
 duration numeric;
 '''
 
-song_table_create = ("""CREATE TABLE IF EXISTS songs (song_id int, \
-title str, \
+song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id int, \
+title VARCHAR, \
 artist_id int, \
 year int, \
 duration numeric);""")
@@ -58,15 +58,15 @@ duration numeric);""")
 
 ''' 
 CREATE TABLE IF NOT EXISTS artists (artist_id int, \
-artist_name str, \
-artist_location str, \
+artist_name VARCHAR, \
+artist_location VARCHAR, \
 artist_latitude numeric, \
 aritst_longitude numeric);
 '''
 
 artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (artist_id int, \
-artist_name str, \
-artist_location str, \
+artist_name VARCHAR, \
+artist_location VARCHAR, \
 artist_latitude numeric, \
 aritst_longitude numeric);""")
 
