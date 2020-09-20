@@ -10,7 +10,7 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 
 '''
 CREATE TABLE IF NOT EXISTS songplays (songplay_id int, start_time time, user_id int, level VARCHAR, \
-artist_id int, session_id int, location VARCHAR, user_Agent VARCHAR)
+artist_id varchar, session_id int, location VARCHAR, user_Agent VARCHAR)
 
 '''
 
@@ -19,7 +19,7 @@ songplay_table_create = ('CREATE TABLE IF NOT EXISTS songplay (songplay_id int, 
 start_time time, \
 user_id int, \
 level VARCHAR, \
-artist_id int, \
+artist_id varchar, \
 session_id int, \
 location VARCHAR, \
 user_Agent VARCHAR);')
@@ -42,29 +42,29 @@ level VARCHAR);""")
 
 
 '''
-CREATE TABLE IF EXISTS songs (song_id int, \
+CREATE TABLE IF EXISTS songs (song_id VARCHAR, \
 title VARCHAR, \
-artist_id int, \
+artist_id VARCHAR, \
 year int, \
 duration numeric;
 '''
 
-song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id int, \
+song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id VARCHAR, \
 title VARCHAR, \
-artist_id int, \
+artist_id VARCHAR, \
 year int, \
 duration numeric);""")
 
 
 ''' 
-CREATE TABLE IF NOT EXISTS artists (artist_id int, \
+CREATE TABLE IF NOT EXISTS artists (artist_id VARCHAR, \
 artist_name VARCHAR, \
 artist_location VARCHAR, \
 artist_latitude numeric, \
 aritst_longitude numeric);
 '''
 
-artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (artist_id int, \
+artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (artist_id VARCHAR, \
 artist_name VARCHAR, \
 artist_location VARCHAR, \
 artist_latitude numeric, \
@@ -101,8 +101,10 @@ songplay_table_insert = ("""
 user_table_insert = ("""
 """)
 
-song_table_insert = ("""
-""")
+
+song_table_insert = ("""INSERT INTO songs (song_id, title, artist_id, year, duration), \
+VALUES (%s, %s, %s, %s, %s) ON CONFLICT ON CONSTRAINT song_table_pkey DO NOTHING""")
+
 
 artist_table_insert = ("""
 """)
