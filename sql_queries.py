@@ -41,13 +41,6 @@ gender VARCHAR, \
 level VARCHAR);""")
 
 
-'''
-CREATE TABLE IF EXISTS songs (song_id VARCHAR, \
-title VARCHAR, \
-artist_id VARCHAR, \
-year int, \
-duration numeric;
-'''
 
 song_table_create = ("""CREATE TABLE IF NOT EXISTS songs (song_id VARCHAR, \
 title VARCHAR, \
@@ -56,30 +49,12 @@ year int, \
 duration numeric);""")
 
 
-''' 
-CREATE TABLE IF NOT EXISTS artists (artist_id VARCHAR, \
-artist_name VARCHAR, \
-artist_location VARCHAR, \
-artist_latitude numeric, \
-aritst_longitude numeric);
-'''
 
 artist_table_create = ("""CREATE TABLE IF NOT EXISTS artists (artist_id VARCHAR, \
 artist_name VARCHAR, \
 artist_location VARCHAR, \
 artist_latitude numeric, \
-aritst_longitude numeric);""")
-
-
-"""
-CREATE TABLE IF NOT EXISTS time (start_time INT PRIMARY KEY, \
-hour int, \
-day int, \
-week int, \
-month int, \
-year int, \
-weekday int);
-"""
+artist_longitude numeric);""")
 
 
 time_table_create = ("""CREATE TABLE IF NOT EXISTS time (start_time INT PRIMARY KEY, \
@@ -103,7 +78,8 @@ user_table_insert = ("""
 
 
 song_table_insert = ("""INSERT INTO songs (song_id, title, artist_id, year, duration), \
-VALUES (%s, %s, %s, %s, %s) ON CONFLICT ON CONSTRAINT song_table_pkey DO NOTHING""")
+VALUES (%s, %s, %s, %s, %s) ON CONFLICT ON CONSTRAINT 
+_table_pkey DO NOTHING""")
 
 
 artist_table_insert = ("""
