@@ -13,6 +13,7 @@ songplay_table_create = ('CREATE TABLE IF NOT EXISTS songplay (songplay_id SERIA
 start_time time NOT NULL, \
 user_id INT NOT NULL, \
 level VARCHAR, \
+song_id VARCHAR, \
 artist_id VARCHAR, \
 session_id INT, \
 location VARCHAR, \
