@@ -54,7 +54,7 @@ weekday INT NOT NULL);
 # INSERT RECORDS
 
 
-songplay_table_insert = ("""INSERT INTO songs (songplay_id, start_time, user_id, level, artist_id, session_id, location, user_agent)
+songplay_table_insert = ("""INSERT INTO songs (start_time, user_id, level, artist_id, session_id, location, user_agent)
 VALUES (%s, %s, %s, %s, %s, %s, %s, %s);""")
 
 
