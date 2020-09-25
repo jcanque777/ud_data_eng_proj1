@@ -11,52 +11,11 @@ There were two datasets: song information from the Million Song Dataset and gene
 
 
 ## Schema
-#### songplay:
-songplay_id SERIAL PRIMARY KEY
-start_time time NOT NULL
-user_id INT NOT NULL
-level VARCHAR
-song_id VARCHAR
-artist_id VARCHAR
-session_id INT
-location VARCHAR
-user_agent VARCHAR
-
-#### users:
-userId VARCHAR PRIMARY KEY
-first_name VARCHAR
-last_name VARCHAR
-gender VARCHAR
-level VARCHAR
-
-
-#### songs:
-song_id VARCHAR PRIMARY KEY
-title VARCHAR NOT NULL
-artist_id VARCHAR NOT NULL
-year INT
-duration NUMERIC NOT NULL
-
-#### artist:
-artist_id VARCHAR PRIMARY KEY
-artist_name VARCHAR NOT NULL
-artist_location VARCHAR
-artist_latitude NUMERIC
-artist_longitude NUMERIC
-
-#### time:
-start_time TIME PRIMARY KEY
-hour INT NOT NULL
-day INT NOT NULL
-week INT NOT NULL
-month INT NOT NULL
-year INT NOT NULL
-weekday INT NOT NULL
 
 
 ### Entity Relationship Diagram
 
-<img width="781" alt="Table Schema" src="https://user-images.githubusercontent.com/53429726/94278787-3fed4100-ff19-11ea-8c6f-1ed6f559b2aa.png">
+<img width="781" alt="Table Schema" src="https://user-images.githubusercontent.com/53429726/94279580-4e882800-ff1a-11ea-84a0-9487817ed334.png">
 
 
 
