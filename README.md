@@ -48,11 +48,12 @@ Songplays:
 - insert all the relevant columns and the crated song_id and artist_id variables to the songplay table
 
 
+#https://user-images.githubusercontent.com/53429726/94287591-8005f100-ff24-11ea-864e-0488d1f50693.png)
 
 ## Example Queries
 After completing the project, all of the queries pass the tests from the provided `tests.ipynb`. Below, I have provided three example queries. There is only one song from the songs data that matches up with the log data, so I chose that song to use for the examples:
 
-<img width="972" alt="Screen Shot 2020-07-17 at 4 45 02 PM" src="https://user-images.githubusercontent.com/34200538/87829358-ef88a180-c84c-11ea-808f-9f1eebdf306b.png">
+<img width="972" alt="Screen Shot 2020-07-17 at 4 45 02 PM" src="https://user-images.githubusercontent.com/53429726/94287591-8005f100-ff24-11ea-864e-0488d1f50693.png)">
 
 
 ## Conclusion
