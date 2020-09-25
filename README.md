@@ -11,8 +11,9 @@ There were two datasets: song information from the Million Song Dataset and gene
 
 
 ## Schema
-The schema is 5 table with: songs, artist,
-
+The schema is 5 tables. The information for songs and artists table came from the 
+song_data file. The log_data folder contains information for the time table and the users table. For the time table, the information is extracted from one column containing the timestamp for user plays. The songplay table 
+The time table comes from log The information for the songplay table comes from the other 4 tables. A SQL query was written to get song_id and artist_id for songs that were in the song_data file, the songs with no matches simply have NONE value. 
 
 ### Entity Relationship Diagram
 
@@ -22,22 +23,29 @@ The schema is 5 table with: songs, artist,
 
 ## ETL pipeline
 
-Processing the data for the `songs` and `artists` dimension tables was fairly straightforward as each JSON file only contained information for one song. The steps for processing the "song" data were:
-- Open the file
-- Set the column names *(note: because I read the JSON file as a series, I set the index instead of column names)*
-- Insert appropriate `songs_table` values
-- Insert appropriate `artists_table` values
+Processing the data for the `songs` and `artists` dimension tables came directly from the song_data folder. Each JSON file contained one row containing information for one song with the corresponding artist information. 
 
+Songs and Artists:
+- Open the song_data files using the get_files() function and save into a DataFrame
+- Choose relevent columns (for songs and artists table) and save into its own DataFrame
+- Loop through each row in (songs or artist DataFrame) and insert values into (songs or artists table)
 
-While the `users` table  was painless to create, processing the data for the `time`, `users`, and `songplays` tables was less straightforward as each JSON file was a simulated activity log for a single day.  The orginal time data was provided in milliseconds, so that was converted to a timestamp and processed to insert `start_time`, `hour`, `day`, `week`, `month`, `year`, and `weekday` values into the `time` table. The `songplays` table contains the values for `timestamp`, `user_id`, `level`, `song_id`, `artist_id`, `session_id`, `location`, and `user_agent`. Because the log files do not specify an ID for either the song or the artist, it was necessary to first query the songs and artists tables to find matches based on song title, artist name, and song duration time.
+Time:
+- Open the log_data files using the get_files() function and save into a DataFrame
+- Reset index of DataFrame as each JSON file has multiple rows of information on users
+- Filter the DataFrame so we only have information where the 'page' is named 'NextSong'
+- Isolate the time column ('ts') and turn string into a datetime format with 'ms' setting (milliseconds)
+- Create a new DataFrame from extracted time values from the datetime column
+- Loop through each row and insert into time table
 
+Users:
+- Same as songs and artist steps
 
-The steps for processing the "log" data were:
-- Open the file and filter by `NextSong` attribute
-- Convert timestamp, process, and insert `time` data
-- Insert appropriate `users` tables values
-- Iteratively execute query to match `song_id` and `artist_id` for `songplays` table data
-- Insert appropriate `songplays` tables values
+Songplays:
+- create a sql query to find the artist_id and song_id using a given artist_name and song.title.
+- from the DataFrame created using the log_data files, go through each row and try to match the artist name and song name to an artist in the artists table or song in the songs table
+- if found, save the song_id and artist_id to a variable, otherwise set variables to NONE
+- insert all the relevant columns and the crated song_id and artist_id variables to the songplay table
 
 
 
