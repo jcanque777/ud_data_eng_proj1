@@ -11,11 +11,12 @@ There were two datasets: song information from the Million Song Dataset and gene
 
 
 ## Schema
+The schema is 5 table with: songs, artist,
 
 
 ### Entity Relationship Diagram
 
-<img width="781" alt="Table Schema" src="https://user-images.githubusercontent.com/53429726/94279580-4e882800-ff1a-11ea-84a0-9487817ed334.png">
+<img width="781" alt="Table Schema" src="https://user-images.githubusercontent.com/53429726/94280085-fd2c6880-ff1a-11ea-86e8-8e62dbc5ea1b.png">
 
 
 
