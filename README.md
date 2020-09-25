@@ -56,7 +56,7 @@ weekday INT NOT NULL
 
 ### Entity Relationship Diagram
 
-<img width="781" alt="Screen Shot 2020-07-17 at 7 40 47 PM" src="https://user-images.githubusercontent.com/34200538/87838602-86f9ee80-c865-11ea-87f5-6086ee67a410.png">
+<img width="781" alt="Table Schema" src="https://user-images.githubusercontent.com/53429726/94276475-4f1ebf80-ff16-11ea-8857-92451343a41f.png">
 
 
 
