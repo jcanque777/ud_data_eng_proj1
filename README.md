@@ -48,13 +48,11 @@ Songplays:
 - insert all the relevant columns and the crated song_id and artist_id variables to the songplay table
 
 
-#https://user-images.githubusercontent.com/53429726/94287591-8005f100-ff24-11ea-864e-0488d1f50693.png)
-
 ## Example Queries
-After completing the project, all of the queries pass the tests from the provided `tests.ipynb`. Below, I have provided three example queries. There is only one song from the songs data that matches up with the log data, so I chose that song to use for the examples:
+After completing the project, all of the queries pass the tests from the provided `tests.ipynb`. There are a lot of NONE values for song_id and artist_id in the songplay table because there are only 73 songs in the song_data file. It turns out just one song is in both the song_data and log_data.
 
 <img width="972" alt="Screen Shot 2020-07-17 at 4 45 02 PM" src="https://user-images.githubusercontent.com/53429726/94287591-8005f100-ff24-11ea-864e-0488d1f50693.png)">
 
 
 ## Conclusion
-This project was a great learning experience. I was able to strengthen my data modeling and ETL pipeline building skills while getting aa solid introduction to Postgres SQL. 
+The project provided a good way to practice creating a database and creating an ETL pipeline to insert raw data files to our finished tables.
