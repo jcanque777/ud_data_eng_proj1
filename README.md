@@ -25,12 +25,13 @@ The time table comes from log The information for the songplay table comes from 
 
 Processing the data for the `songs` and `artists` dimension tables came directly from the song_data folder. Each JSON file contained one row containing information for one song with the corresponding artist information. 
 
-Songs and Artists:
+
+`songs` and `artists`:
 - Open the song_data files using the get_files() function and save into a DataFrame
 - Choose relevent columns (for songs and artists table) and save into its own DataFrame
 - Loop through each row in (songs or artist DataFrame) and insert values into (songs or artists table)
 
-Time:
+`time`:
 - Open the log_data files using the get_files() function and save into a DataFrame
 - Reset index of DataFrame as each JSON file has multiple rows of information on users
 - Filter the DataFrame so we only have information where the 'page' is named 'NextSong'
@@ -38,10 +39,10 @@ Time:
 - Create a new DataFrame from extracted time values from the datetime column
 - Loop through each row and insert into time table
 
-Users:
+`users`:
 - Same as songs and artist steps
 
-Songplays:
+`songplays`:
 - create a sql query to find the artist_id and song_id using a given artist_name and song.title.
 - from the DataFrame created using the log_data files, go through each row and try to match the artist name and song name to an artist in the artists table or song in the songs table
 - if found, save the song_id and artist_id to a variable, otherwise set variables to NONE
